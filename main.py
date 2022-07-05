@@ -7,27 +7,35 @@ class Veiculo:
         self.valor_veiculo = valor_veiculo
         self.cpf_comprador = cpf_comprador
         self.cor_veiculo = cor_veiculo
-        self.vendido = False
+        self.em_estoque = True
 
     def vender_veiculo(self):
         print(f'O {self.nome_veiculo} {self.cor_veiculo} de placa {self.placa_veiculo} foi vendido. \n cpf do comprador: {self.cpf_comprador}')
-        self.vendido = True
+        self.em_estoque = False
         
     def listar_informacoes(self):
-        print(f'{self.nome_veiculo} \n {self.cor_veiculo} \n número de chassi: {self.num_chassi} \n placa: {self.placa_veiculo} /n data de fabricação: {self.data_fabricacao} \n cpf do comprador: {self.cpf_comprador} \n valor: {self.valor_veiculo} \n em estoque: {self.vendido}')
+        print(f'{self.nome_veiculo} \n {self.cor_veiculo} \n número de chassi: {self.num_chassi} \n placa: {self.placa_veiculo} /n data de fabricação: {self.data_fabricacao} \n cpf do comprador: {self.cpf_comprador} \n valor: {self.valor_veiculo} \n em estoque: {self.em_estoque}')
         return True
 
     def alterar_informações(self):
         print('Lembrando que você só pode alterar a cor e o valor do veículo! ')
         nova_cor = str(input(f'Qual será a nova cor do seu {self.nome_veiculo}: '))
-        novo_valor = int(input(f'Qual será o novo valor do seu {self.nome_veiculo} {nova_cor}: '))
+        novo_valor = float(input(f'Qual será o novo valor do seu {self.nome_veiculo}: '))
         self.cor_veiculo = nova_cor
         self.valor_veiculo = novo_valor
-        print(f'A nova cor do seu veículo é: {self.cor_veiculo} com o valor atualizado de: {self.valor_veiculo}')
+        print(f'A nova cor do seu veículo é: {self.cor_veiculo} com o valor atualizado de: {self.valor_veiculo}R$')
+
+class Moto_Triciculo(Veiculo):
+    def __init__(self, num_chassi, data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, cor_veiculo, potencia_motor, qtd_rodas):
+        self.potencia_motor = potencia_motor
+        self.qtd_rodas = qtd_rodas
+        super().__init__(num_chassi, data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, cor_veiculo)
+        
+    
 
 v1 = Veiculo(1010, 2008, 'Montana', 102034, 1000, 107727, 'Roxo')
-v2 = Veiculo(1010, 2008, 'Ferrari', 102034, 1000, 107727, 'Rosa')
-v3 = Veiculo(1010, 2008, 'jetta', 102034, 1000, 107727, 'Vermelho')
+v2 = Moto_Triciculo(1010, 2008, 'S1000rr', 102034, 1000, 107727, 'Rosa', '200cv', 2)
+v3 = Moto_Triciculo(1010, 2008, 'Gs1250r', 102034, 1000, 107727, 'branco', '500cv', 4)
 v4 = Veiculo(1010, 2008, 'Gool', 102034, 1000, 107727, 'Azul')
 v5 = Veiculo(1010, 2008, 'Azera', 102034, 1000, 107727, 'Verde')
 while True:
@@ -86,3 +94,4 @@ while True:
     if decida_a_acao == 4:
         print('Até mais!!')
         break
+
