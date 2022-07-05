@@ -30,10 +30,17 @@ class Moto_Triciculo(Veiculo):
         self.potencia_motor = potencia_motor
         self.qtd_rodas = qtd_rodas
         super().__init__(num_chassi, data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, cor_veiculo)
+
+class Carro(Veiculo):
+    def __init__(self, num_chassi, data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, cor_veiculo, qtd_portas, tipo_combustivel, potencia_motor):
+        self.qtd_portas = qtd_portas
+        self.tipo_combustivel = tipo_combustivel
+        self.potencia_motor = potencia_motor
+        super().__init__(num_chassi, data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, cor_veiculo)
         
     
 
-v1 = Veiculo(1010, 2008, 'Montana', 102034, 1000, 107727, 'Roxo')
+v1 = Carro(1010, 2008, 'Montana', 102034, 1000, 107727, 'Roxo', 4, 'Flex', '420cv')
 v2 = Moto_Triciculo(1010, 2008, 'S1000rr', 102034, 1000, 107727, 'Rosa', '200cv', 2)
 v3 = Moto_Triciculo(1010, 2008, 'Gs1250r', 102034, 1000, 107727, 'branco', '500cv', 4)
 v4 = Veiculo(1010, 2008, 'Gool', 102034, 1000, 107727, 'Azul')
