@@ -37,13 +37,21 @@ class Carro(Veiculo):
         self.tipo_combustivel = tipo_combustivel
         self.potencia_motor = potencia_motor
         super().__init__(num_chassi, data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, cor_veiculo)
+
+class Camionete(Veiculo):
+    def __init__(self, num_chassi, data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, qtd_portas, tipo_combustivel, capacidade_carregamento, potencia_motor, cor_veiculo="roxo"):
+        self.qtd_portas = qtd_portas
+        self.tipo_combustivel = tipo_combustivel
+        self.capacidade_carregamento = capacidade_carregamento
+        self.potencia_motor = potencia_motor
+        super().__init__(num_chassi, data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, cor_veiculo)
         
     
 
 v1 = Carro(1010, 2008, 'Montana', 102034, 1000, 107727, 'Roxo', 4, 'Flex', '420cv')
 v2 = Moto_Triciculo(1010, 2008, 'S1000rr', 102034, 1000, 107727, 'Rosa', '200cv', 2)
 v3 = Moto_Triciculo(1010, 2008, 'Gs1250r', 102034, 1000, 107727, 'branco', '500cv', 4)
-v4 = Veiculo(1010, 2008, 'Gool', 102034, 1000, 107727, 'Azul')
+v4 = Camionete(1010, 2008, 'Gool', 102034, 1000, 107727, 4, 'Diesel', '400l', '280cv')
 v5 = Veiculo(1010, 2008, 'Azera', 102034, 1000, 107727, 'Verde')
 while True:
     decida_a_acao = int(input('Qual ação você deseja realizar? Vender um veículo[1] \n Listar informações de um veículo[2] \n Alterar informações[3] \n Sair[4] \n '))
