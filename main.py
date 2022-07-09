@@ -1,4 +1,5 @@
 from random import randint  
+DATA_BASE = [] #Array em que os veículos são salvos.
 class Veiculo:
     def __init__(self, data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, cor_veiculo):
         self.num_chassi = randint(0, 10000000000000)
@@ -55,38 +56,51 @@ class Veiculo:
                 menor_valor = veiculo.valor_veiculo
         print(f'O Veículo com menor valor é: \n ------ {info_veiculo.nome_veiculo} ------ \n E seu preço é: \n ------ {menor_valor}R$ ------')
 
+    def relatorio_veiculos_vendidos(self):
+        info_veiculo = None
+        for veiculo in DATA_BASE:
+            info_veiculo = veiculo
+            if veiculo.em_estoque == False:
+                print(f'Modelo: \n ------ {info_veiculo.nome_veiculo} ------ \n Numero de chassi: \n ------ {info_veiculo.num_chassi} ------ \n Está vendido!!! \n')
+
+            if veiculo.em_estoque == True:
+                print(f'Modelo: \n ------ {info_veiculo.nome_veiculo} ------ \n Numero de chassi: \n ------ {info_veiculo.num_chassi} ------ \n Não está vendido!!! \n')
+    def relatorio_veiculos_disponiveis(self):
+        info_veiculo = None
+        for veiculo in DATA_BASE:
+            info_veiculo = veiculo
+            if veiculo.em_estoque == True:
+                print(f'Modelo: \n ------ {info_veiculo.nome_veiculo} ------ \n Numero de chassi: \n ------ {info_veiculo.num_chassi} ------ \n Está Disponível!!!')
+
     def relatorio_por_tipo_veiculo(self):
         categoria_veiculo = int(input('Qual categoria de Veículo você deseja listar? \n Carros[1] \n Motos/Triciculos[2] \n Camionetes[3] \n Todos[4]'))
         if categoria_veiculo == 1:
-            print('------ Temos apenas 1 carro no estoque no momento ------')
+            print('------ Temos apenas 1 carro em estoque no momento ------')
             print(f'Data de fabricação: \n ------ {v1.data_fabricacao} ------ \n Modelo: \n ------ {v1.nome_veiculo} \n Placa: ------ {v1.placa_veiculo} ------ \n Potência: \n ------ {v1.potencia_motor} ------ \n Tipo de combustível: \n ------ {v1.tipo_combustivel} ------ \n Total de portas: \n ------ {v1.qtd_portas} ------')
 
         if categoria_veiculo == 2:
-            print('------ Temos apenas 2 motos no estoque no momento ------')
+            print('------ Temos apenas 2 motos em estoque no momento ------')
             print(f'Data de fabricação: \n ------ {v2.data_fabricacao} ------ \n Modelo: \n ------ {v2.nome_veiculo} \n Placa: ------ {v2.placa_veiculo} ------ \n Potência: \n ------ {v2.potencia_motor} ------ \n Quantidade de Rodas: \n ------ {v2.qtd_rodas} ------')
 
             print(f'Data de fabricação: \n ------ {v3.data_fabricacao} ------ \n Modelo: \n ------ {v3.nome_veiculo} \n Placa: ------ {v3.placa_veiculo} ------ \n Potência: \n ------ {v3.potencia_motor} ------ \n Quantidade de rodas: \n ------ {v3.qtd_rodas} ------')
 
         if categoria_veiculo == 3:
-            print('------ Temos apenas 1 camionete no estoque no momento ------')
+            print('------ Temos apenas 1 camionete em estoque no momento ------')
             print(f'Data de fabricação: \n ------ {v4.data_fabricacao} ------ \n Modelo: \n ------ {v4.nome_veiculo} \n Placa: ------ {v4.placa_veiculo} ------ \n Quantidade de portas: \n ------ {v4.qtd_portas} ------ \n Tipo de combustível: \n ------ {v4.tipo_combustivel} ------ \n Potência: \n ------ {v4.potencia_motor} ------ \n Capacidade de carregamento: \n ------ {v4.capacidade_carregamento} ------')
 
-        if categoria_veiculo == 4:
-            print('------ Temos apenas 1 carro no estoque no momento ------')
+    def listar_todos_veiculos(self):
+            print('------ Temos apenas 1 carro em estoque no momento ------')
             print(f'Data de fabricação: \n ------ {v1.data_fabricacao} ------ \n Modelo: \n ------ {v1.nome_veiculo} \n Placa: ------ {v1.placa_veiculo} ------ \n Potência: \n ------ {v1.potencia_motor} ------ \n Tipo de combustível: \n ------ {v1.tipo_combustivel} ------ \n Total de portas: \n ------ {v1.qtd_portas} ------')
 
-            print('------ Temos apenas 2 motos no estoque no momento ------')
+            print('------ Temos apenas 2 motos em estoque no momento ------')
             print(f'Data de fabricação: \n ------ {v2.data_fabricacao} ------ \n Modelo: \n ------ {v2.nome_veiculo} \n Placa: ------ {v2.placa_veiculo} ------ \n Potência: \n ------ {v2.potencia_motor} ------ \n Quantidade de Rodas: \n ------ {v2.qtd_rodas} ------')
 
             print(f'Data de fabricação: \n ------ {v3.data_fabricacao} ------ \n Modelo: \n ------ {v3.nome_veiculo} \n Placa: ------ {v3.placa_veiculo} ------ \n Potência: \n ------ {v3.potencia_motor} ------ \n Quantidade de rodas: \n ------ {v3.qtd_rodas} ------')
 
-            print('------ Temos apenas 1 camionete no estoque no momento ------')
+            print('------ Temos apenas 1 camionete em estoque no momento ------')
             print(f'Data de fabricação: \n ------ {v4.data_fabricacao} ------ \n Modelo: \n ------ {v4.nome_veiculo} \n Placa: ------ {v4.placa_veiculo} ------ \n Quantidade de portas: \n ------ {v4.qtd_portas} ------ \n Tipo de combustível: \n ------ {v4.tipo_combustivel} ------ \n Potência: \n ------ {v4.potencia_motor} ------ \n Capacidade de carregamento: \n ------ {v4.capacidade_carregamento} ------')
+     
 
-    
-
-
-DATA_BASE = []
 class Transacoes:
     def __init__(self, data_compra, cpf_comprador, valor, num_chassi, placa_veiculo):
         self.data_compra = data_compra
@@ -116,23 +130,24 @@ class Camionete(Veiculo):
         self.potencia_motor = potencia_motor
         super().__init__(data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, cor_veiculo)
 
-v1 = Carro('10/10/21', 'Montana', 102034, '1R$', 107727, 'Roxo', 4, 'Flex', '420cv')
-v2 = Moto_Triciculo('10/10/21',  'S1000rr', 102034, '5000000R$', 107727, 'Rosa', '200cv', 2)
-v3 = Moto_Triciculo('10/10/21',  'Gs1250r', 102034, '1000R$', 107727, 'branco', '500cv', 4)
-v4 = Camionete('10/10/21', 'Gol', 102034, '1000R$', 107727, 4, 'Diesel', '400l', '280cv')
+v1 = Carro('10/10/21', 'Montana', 102034, 1, 107727, 'Roxo', 4, 'Flex', '420cv')
+v2 = Moto_Triciculo('10/10/21',  'S1000rr', 102034, 5000000, 107727, 'Rosa', '200cv', 2)
+v3 = Moto_Triciculo('10/10/21',  'Gs1250r', 102034, 1000, 107727, 'branco', '500cv', 4)
+v4 = Camionete('10/10/21', 'Gol', 102034, 1000, 107727, 4, 'Diesel', '400l', '280cv')
 
 v1.salva_data_base(v1)
 v2.salva_data_base(v2)
 v3.salva_data_base(v3)
 v4.salva_data_base(v4)
-v1.relatorio_por_tipo_veiculo()
+
 
 while True:
-    decida_a_acao = int(input('Qual ação você deseja realizar? \n Vender um veículo[1] \n Listar informações de um veículo[2] \n Alterar informações[3] \n Listar Dados das transacoes[4] \n Sair[5]  \n '))
+    decida_a_acao = int(input('Qual ação você deseja realizar? \n Vender um veículo[1] \n Listar informações de um veículo[2] \n Alterar informações[3] \n Listar Dados das transacoes[4] \n Listar veículos vendidos com maior preço[5] \n Listar veículos vendidos com menor preço[6] \n Listar veículos por categoria[7] \n listar todos os veículos[8] \n Listar veículos disponíveis[9] \n listar veículos vendidos[10] \n Sair[11]  \n '))
     if decida_a_acao == 1:
-        veiculo_desejado = int(input("Qual veículo deseja vender? V1[1] \n V2[2] \n V3[3] \n V4[4] \n "))
+        veiculo_desejado = int(input("Qual veículo deseja vender? \n V1[1] \n V2[2] \n V3[3] \n V4[4] \n "))
         if veiculo_desejado == 1:
             v1.vender_veiculo()
+            
 
         if veiculo_desejado == 2:
             v2.vender_veiculo()
@@ -195,6 +210,24 @@ while True:
             v4.lista_dados_transacao()
 
     if decida_a_acao == 5:
+        v1.relatorio_veiculo_maior_valor()
+
+    if decida_a_acao == 6:
+        v1.relatorio_veiculo_menor_valor()
+
+    if decida_a_acao == 7:
+        v1.relatorio_por_tipo_veiculo()
+
+    if decida_a_acao == 8:
+        v1.listar_todos_veiculos()
+
+    if decida_a_acao == 9:
+        v1.relatorio_veiculos_disponiveis()
+
+    if decida_a_acao == 10:
+        v1.relatorio_veiculos_vendidos()
+
+    if decida_a_acao == 11:
         print('Até mais!!')
         break
 
