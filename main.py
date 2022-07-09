@@ -71,6 +71,18 @@ class Veiculo:
             print('------ Temos apenas 1 camionete no estoque no momento ------')
             print(f'Data de fabricação: \n ------ {v4.data_fabricacao} ------ \n Modelo: \n ------ {v4.nome_veiculo} \n Placa: ------ {v4.placa_veiculo} ------ \n Quantidade de portas: \n ------ {v4.qtd_portas} ------ \n Tipo de combustível: \n ------ {v4.tipo_combustivel} ------ \n Potência: \n ------ {v4.potencia_motor} ------ \n Capacidade de carregamento: \n ------ {v4.capacidade_carregamento} ------')
 
+        if categoria_veiculo == 4:
+            print('------ Temos apenas 1 carro no estoque no momento ------')
+            print(f'Data de fabricação: \n ------ {v1.data_fabricacao} ------ \n Modelo: \n ------ {v1.nome_veiculo} \n Placa: ------ {v1.placa_veiculo} ------ \n Potência: \n ------ {v1.potencia_motor} ------ \n Tipo de combustível: \n ------ {v1.tipo_combustivel} ------ \n Total de portas: \n ------ {v1.qtd_portas} ------')
+
+            print('------ Temos apenas 2 motos no estoque no momento ------')
+            print(f'Data de fabricação: \n ------ {v2.data_fabricacao} ------ \n Modelo: \n ------ {v2.nome_veiculo} \n Placa: ------ {v2.placa_veiculo} ------ \n Potência: \n ------ {v2.potencia_motor} ------ \n Quantidade de Rodas: \n ------ {v2.qtd_rodas} ------')
+
+            print(f'Data de fabricação: \n ------ {v3.data_fabricacao} ------ \n Modelo: \n ------ {v3.nome_veiculo} \n Placa: ------ {v3.placa_veiculo} ------ \n Potência: \n ------ {v3.potencia_motor} ------ \n Quantidade de rodas: \n ------ {v3.qtd_rodas} ------')
+
+            print('------ Temos apenas 1 camionete no estoque no momento ------')
+            print(f'Data de fabricação: \n ------ {v4.data_fabricacao} ------ \n Modelo: \n ------ {v4.nome_veiculo} \n Placa: ------ {v4.placa_veiculo} ------ \n Quantidade de portas: \n ------ {v4.qtd_portas} ------ \n Tipo de combustível: \n ------ {v4.tipo_combustivel} ------ \n Potência: \n ------ {v4.potencia_motor} ------ \n Capacidade de carregamento: \n ------ {v4.capacidade_carregamento} ------')
+
     
 
 
