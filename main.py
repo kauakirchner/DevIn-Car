@@ -55,8 +55,6 @@ v2 = Moto_Triciculo(1010,  'S1000rr', 102034, 1000, 107727, 'Rosa', '200cv', 2)
 v3 = Moto_Triciculo(1010,  'Gs1250r', 102034, 1000, 107727, 'branco', '500cv', 4)
 v4 = Camionete(1010,  'Gool', 102034, 1000, 107727, 4, 'Diesel', '400l', '280cv')
 v5 = Veiculo(1010, 'Azera', 102034, 1000, 107727, 'Verde')
-
-print(f'Teste num chassi, {v1.num_chassi}')
 while True:
     decida_a_acao = int(input('Qual ação você deseja realizar? Vender um veículo[1] \n Listar informações de um veículo[2] \n Alterar informações[3] \n Sair[4] \n '))
     if decida_a_acao == 1:
