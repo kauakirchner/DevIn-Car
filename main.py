@@ -12,16 +12,16 @@ class Veiculo:
         self.em_estoque = True
 
     def vender_veiculo(self):
-        print(f'O {self.nome_veiculo} {self.cor_veiculo} de placa {self.placa_veiculo} foi vendido. \n cpf do comprador: {self.cpf_comprador}')
+        print(f'O veículo: {self.nome_veiculo} {self.cor_veiculo} \n placa: {self.placa_veiculo} \n foi vendido. \n cpf do comprador: {self.cpf_comprador}')
         self.em_estoque = False
         
     def listar_informacoes(self):
-        print(f'{self.nome_veiculo} \n {self.cor_veiculo} \n número de chassi: {self.num_chassi} \n placa: {self.placa_veiculo} /n data de fabricação: {self.data_fabricacao} \n cpf do comprador: {self.cpf_comprador} \n valor: {self.valor_veiculo} \n em estoque: {self.em_estoque}')
+        print(f'{self.nome_veiculo} \n {self.cor_veiculo} \n número de chassi: {self.num_chassi} \n placa: {self.placa_veiculo} \n data de fabricação: {self.data_fabricacao} \n cpf do comprador: {self.cpf_comprador} \n valor: {self.valor_veiculo} \n em estoque: {self.em_estoque}')
         return True
 
     def alterar_informações(self):
-        print('Lembrando que você só pode alterar a cor e o valor do veículo! ')
-        nova_cor = str(input(f'Qual será a nova cor do seu {self.nome_veiculo}: '))
+        print('Lembrando que você só pode alterar a cor e o valor do veículo! \n ')
+        nova_cor = str(input(f'Qual será a nova cor do seu {self.nome_veiculo}: \n '))
         novo_valor = float(input(f'Qual será o novo valor do seu {self.nome_veiculo}: '))
         self.cor_veiculo = nova_cor
         self.valor_veiculo = novo_valor
@@ -56,7 +56,7 @@ v3 = Moto_Triciculo(1010,  'Gs1250r', 102034, 1000, 107727, 'branco', '500cv', 4
 v4 = Camionete(1010,  'Gool', 102034, 1000, 107727, 4, 'Diesel', '400l', '280cv')
 v5 = Veiculo(1010, 'Azera', 102034, 1000, 107727, 'Verde')
 while True:
-    decida_a_acao = int(input('Qual ação você deseja realizar? Vender um veículo[1] \n Listar informações de um veículo[2] \n Alterar informações[3] \n Sair[4] \n '))
+    decida_a_acao = int(input('Qual ação você deseja realizar? \n Vender um veículo[1] \n Listar informações de um veículo[2] \n Alterar informações[3] \n Sair[4]  \n '))
     if decida_a_acao == 1:
         veiculo_desejado = int(input("Qual veículo deseja vender? V1[1] \n V2[2] \n V3[3] \n V4[4] \n V5[5] \n "))
         if veiculo_desejado == 1:
@@ -75,7 +75,7 @@ while True:
             v5.vender_veiculo()
 
     if decida_a_acao == 2:
-        veiculo_desejado = int(input("Qual veículo deseja listar as informações? V1[1] \n V2[2] \n V3[3] \n V4[4] \n V5[5] \n "))
+        veiculo_desejado = int(input("Qual veículo deseja listar as informações? \n V1[1] \n V2[2] \n V3[3] \n V4[4] \n V5[5] \n "))
         if veiculo_desejado == 1:
             v1.listar_informacoes()
 
@@ -92,7 +92,7 @@ while True:
             v5.listar_informacoes()
 
     if decida_a_acao == 3:
-        veiculo_desejado = int(input("Qual veículo deseja listar as informações? V1[1] \n V2[2] \n V3[3] \n V4[4] \n V5[5] \n "))
+        veiculo_desejado = int(input("Qual veículo deseja listar as informações? \n V1[1] \n V2[2] \n V3[3] \n V4[4] \n V5[5] \n "))
         if veiculo_desejado == 1:
             v1.alterar_informações()
 
