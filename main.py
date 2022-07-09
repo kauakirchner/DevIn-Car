@@ -1,5 +1,8 @@
-from random import randint  
+from random import randint 
+
 DATA_BASE = [] #Array em que os veículos são salvos.
+
+# Classe príncipal
 class Veiculo:
     def __init__(self, data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, cor_veiculo):
         self.num_chassi = randint(0, 10000000000000)
@@ -22,8 +25,8 @@ class Veiculo:
 
     def alterar_informações(self):
         print('Lembrando que você só pode alterar a cor e o valor do veículo! \n ')
-        nova_cor = str(input(f'Qual será a nova cor do seu {self.nome_veiculo}: \n '))
-        novo_valor = float(input(f'Qual será o novo valor do seu {self.nome_veiculo}: '))
+        nova_cor = str(input(f'Digite a nova cor do seu {self.nome_veiculo}: \n '))
+        novo_valor = float(input(f'Digite o novo valor do seu {self.nome_veiculo}: '))
         self.cor_veiculo = nova_cor
         self.valor_veiculo = novo_valor
         print(f'A nova cor do seu veículo é: \n ------ {self.cor_veiculo} ------ \n Com o valor atualizado de: \n ------ {self.valor_veiculo}R$ ------')
@@ -45,7 +48,8 @@ class Veiculo:
             if veiculo.valor_veiculo > maior_valor:
                 info_veiculo = veiculo
                 maior_valor = veiculo.valor_veiculo
-        print(f'O Veículo com maior valor é: \n ------ {info_veiculo.nome_veiculo} ------ \n E seu preço é: \n ------ {maior_valor}R$ ------')
+
+        print(f'O Veículo com maior valor é: \n ------ {info_veiculo.nome_veiculo} ------ \n E seu valor é: \n ------ {maior_valor}R$ ------')
 
     def relatorio_veiculo_menor_valor(self):
         info_veiculo = None
@@ -65,6 +69,7 @@ class Veiculo:
 
             if veiculo.em_estoque == True:
                 print(f'Modelo: \n ------ {info_veiculo.nome_veiculo} ------ \n Numero de chassi: \n ------ {info_veiculo.num_chassi} ------ \n Não está vendido!!! \n')
+                
     def relatorio_veiculos_disponiveis(self):
         info_veiculo = None
         for veiculo in DATA_BASE:
@@ -73,7 +78,7 @@ class Veiculo:
                 print(f'Modelo: \n ------ {info_veiculo.nome_veiculo} ------ \n Numero de chassi: \n ------ {info_veiculo.num_chassi} ------ \n Está Disponível!!!')
 
     def relatorio_por_tipo_veiculo(self):
-        categoria_veiculo = int(input('Qual categoria de Veículo você deseja listar? \n Carros[1] \n Motos/Triciculos[2] \n Camionetes[3] \n Todos[4]'))
+        categoria_veiculo = int(input('Qual categoria de Veículo você deseja listar? \n Carros[1] \n Motos/Triciculos[2] \n Camionetes[3] \n '))
         if categoria_veiculo == 1:
             print('------ Temos apenas 1 carro em estoque no momento ------')
             print(f'Data de fabricação: \n ------ {v1.data_fabricacao} ------ \n Modelo: \n ------ {v1.nome_veiculo} \n Placa: ------ {v1.placa_veiculo} ------ \n Potência: \n ------ {v1.potencia_motor} ------ \n Tipo de combustível: \n ------ {v1.tipo_combustivel} ------ \n Total de portas: \n ------ {v1.qtd_portas} ------')
@@ -99,8 +104,8 @@ class Veiculo:
 
             print('------ Temos apenas 1 camionete em estoque no momento ------')
             print(f'Data de fabricação: \n ------ {v4.data_fabricacao} ------ \n Modelo: \n ------ {v4.nome_veiculo} \n Placa: ------ {v4.placa_veiculo} ------ \n Quantidade de portas: \n ------ {v4.qtd_portas} ------ \n Tipo de combustível: \n ------ {v4.tipo_combustivel} ------ \n Potência: \n ------ {v4.potencia_motor} ------ \n Capacidade de carregamento: \n ------ {v4.capacidade_carregamento} ------')
-     
 
+# Classes sem métodos
 class Transacoes:
     def __init__(self, data_compra, cpf_comprador, valor, num_chassi, placa_veiculo):
         self.data_compra = data_compra
@@ -130,17 +135,19 @@ class Camionete(Veiculo):
         self.potencia_motor = potencia_motor
         super().__init__(data_fabricacao, nome_veiculo, placa_veiculo, valor_veiculo, cpf_comprador, cor_veiculo)
 
+# Instâncias
 v1 = Carro('10/10/21', 'Montana', 102034, 1, 107727, 'Roxo', 4, 'Flex', '420cv')
 v2 = Moto_Triciculo('10/10/21',  'S1000rr', 102034, 5000000, 107727, 'Rosa', '200cv', 2)
 v3 = Moto_Triciculo('10/10/21',  'Gs1250r', 102034, 1000, 107727, 'branco', '500cv', 4)
 v4 = Camionete('10/10/21', 'Gol', 102034, 1000, 107727, 4, 'Diesel', '400l', '280cv')
 
+# Salvando instâncias no data_base
 v1.salva_data_base(v1)
 v2.salva_data_base(v2)
 v3.salva_data_base(v3)
 v4.salva_data_base(v4)
 
-
+# Menu interação
 while True:
     decida_a_acao = int(input('Qual ação você deseja realizar? \n Vender um veículo[1] \n Listar informações de um veículo[2] \n Alterar informações[3] \n Listar Dados das transacoes[4] \n Listar veículos vendidos com maior preço[5] \n Listar veículos vendidos com menor preço[6] \n Listar veículos por categoria[7] \n listar todos os veículos[8] \n Listar veículos disponíveis[9] \n listar veículos vendidos[10] \n Sair[11]  \n '))
     if decida_a_acao == 1:
@@ -148,7 +155,6 @@ while True:
         if veiculo_desejado == 1:
             v1.vender_veiculo()
             
-
         if veiculo_desejado == 2:
             v2.vender_veiculo()
         
@@ -157,7 +163,6 @@ while True:
 
         if veiculo_desejado == 4:
             v4.vender_veiculo()
-
 
     if decida_a_acao == 2:
         veiculo_desejado = int(input("Qual veículo deseja listar as informações? \n V1[1] \n V2[2] \n V3[3] \n V4[4] \n "))
